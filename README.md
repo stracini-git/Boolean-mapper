@@ -122,12 +122,12 @@ in the paper. The experiments were run 1000 times.
 - gray crosses are the means and standard deviations for [Hypothesis 3](#hypothesis-3)
 
 Notice the very good overlap between the means and error bars in the lower-left panel which compares
-[Hypothesis 2](#hypothesis-2) with models trained with `relu` activations. More details on how exactly the emphasis is
+Hypothesis 2 with models trained with `relu` activations. More details on how exactly the emphasis is
 put on the classes with higher probabilities in the code: [hypothesis_tester.py](hypothesis_tester.py)
 
-[Hypothesis 1](#hypothesis-1) also matches
+Hypothesis 1 also matches
 the experimental curves in the right panels, though not as well. There seems to be a slightly higher generalization
-error as compared to [Hypothesis 1](#hypothesis-1) which means that the model did not capture the statistics so well.
+error as compared to Hypothesis 1 which means that the model did not capture the statistics so well.
 
 On the more philosophical side, it seems that simplicity wins: if one cannot find an algorithm which maps inputs to
 outputs, then we can be better off betting on the class with the highest probability as calculated from the training
