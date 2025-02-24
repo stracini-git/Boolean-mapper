@@ -114,11 +114,6 @@ A toy model: always bet on the class with the highest probability.
 
 ![Results](Overlays.png "Results")
 
-<p style="text-align:center;">Figure2</p>
-
-<br>
-
-
 Figure2 shows the predictions of the three hypotheses superimposed on the results shown
 in the paper. The experiments were run 1000 times.
 
@@ -134,6 +129,6 @@ put on the classes with higher probabilities in the code: [hypothesis_tester.py]
 the experimental curves in the right panels, though not as well. There seems to be a slightly higher generalization
 error as compared to [Hypothesis 1](#hypothesis-1) which means that the model did not capture the statistics so well.
 
-On the more philosophical side, it seems that simplicity wins: if one cannot find an algorithm which maps inputs to 
-outputs, then we can be better off betting on the class with the highest probability as calculated from the training 
+On the more philosophical side, it seems that simplicity wins: if one cannot find an algorithm which maps inputs to
+outputs, then we can be better off betting on the class with the highest probability as calculated from the training
 set. The toy model appears on average as a better predictor for random boolean mappings than any of the neural models. 
