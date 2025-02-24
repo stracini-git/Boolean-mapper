@@ -57,7 +57,7 @@ def array_with_n_ones(size, n):
     return np.asarray(y)
 
 
-def hypothesis_1(y_train, size, **kwargs):
+def hypothesis_1(y_train, size):
     """
     hypothesis_1:
         - the model learns the 0/1 statistics from the train set
@@ -84,13 +84,13 @@ def hypothesis_1(y_train, size, **kwargs):
         p0 = np.random.choice([1, 2]) / len(y_train)
         p1 = 1 - p0
 
-    # do a "prediction" according to hypothesis_1: random prediction with probabilities for 0/1 classes
+    # do a "prediction" based on the determined probabilities
     prediction = np.random.choice([0, 1], p=(p0, p1), size=size)
 
-    return prediction, p0, p1
+    return prediction
 
 
-def hypothesis_2(y_train, size, **kwargs):
+def hypothesis_2(y_train, size):
     """
     hypothesis_2:
         - the model learns the 0/1 statistics from the train set
@@ -126,38 +126,28 @@ def hypothesis_2(y_train, size, **kwargs):
         p0 = np.random.choice([1, 2]) / len(y_train)
         p1 = 1 - p0
 
-    # do a "prediction" according to hypothesis_1: random prediction with probabilities for 0/1 classes
+    # do a "prediction" based on the determined probabilities
     prediction = np.random.choice([0, 1], p=(p0, p1), size=size)
 
-    return prediction, p0, p1
+    return prediction
 
 
-def hypothesis_3(y_train, size, **kwargs):
+def hypothesis_3(y_train, size):
     """
     hypothesis_3:
-        always bet on the class with the highest probability
+        - always bet on the class with the highest probability
     """
 
     # do the train statistics
     n1 = np.count_nonzero(y_train)
     n0 = len(y_train) - n1
 
-    p1 = n1 / len(y_train)
-    p0 = n0 / len(y_train)
-
-    if p1 > p0:
-        p1 = 1
-        p0 = 0
-
-    elif p0 > p1:
-        p0 = 1
-        p1 = 0
-
-    # do a "prediction" according to hypothesis_1: random prediction with probabilities for 0/1 classes
-    prediction = np.random.choice([0, 1], p=(p0, p1), size=size)
-
-    np.random.shuffle(prediction)
-    return prediction, p0, p1
+    if n1 > n0:
+        return np.ones_like(y_train)
+    elif n0 > n1:
+        return np.zeros_like(y_train)
+    else:
+        return np.random.choice([0, 1], size=size)
 
 
 def prepare_random_boolean_dataset(n1s, train_test_ratio):
@@ -235,7 +225,7 @@ def statistical_learners():
 
             # do a "prediction" according to hypothesis id:
             for h_id in list(hypothesis_classes.keys()):
-                prediction, _, _ = hypothesis_classes[h_id]['func'](y_train, len(y_test))
+                prediction = hypothesis_classes[h_id]['func'](y_train, len(y_test))
 
                 # calculate prediction error
                 error = calculate_error(y_test, prediction)
