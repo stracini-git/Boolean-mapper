@@ -106,7 +106,8 @@ the remaining labels are $0$s. If one would predict only zeros for the test set,
 of
 correct $y_{true}/y_{pred}$ matches, would actually be very high (62 out of 64 $0$'s would be correctly matched),
 therefore
-the error would be $1-62/64=0.03125$. This indicates a high correlation between the accuracy and the class imbalance.
+the error would be $1-62/64=0.03125$. This indicates a high correlation between the accuracy and the class imbalance
+and points to the idea that the prediction accuracy could be related only to the class frequency in the train data.
 One can therefore test the following hypothesis:
 
 ---
