@@ -161,7 +161,7 @@ training the models a few extra epochs after the train error has reached 0 helps
 The fact that a simple statistical model is able to capture so well the experimental results is most certainly
 due to the adopted definition of accuracy. It does not take into account imbalanced datasets and is not sensitive
 enough to point out issues arising from this. Therefore, while it appears that the models do decrease the generalization 
-error, it is not exactly what one thinks of normally. 
+error, it is not exactly what one thinks of normally. It is just a statistical effect of the class imbalance, and it should be so because the data produced by random mappings, on average, do not have anything particularly interesting beside the class occurence frequency in the train data. 
 
 On the more philosophical side, it seems that simplicity wins: if one cannot find an algorithm which maps inputs to
 outputs, then we can be better off by betting on the class with the highest probability as calculated from the training
