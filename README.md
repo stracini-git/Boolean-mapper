@@ -110,9 +110,11 @@ the error would be $1-62/64=0.03125$. This indicates a high correlation between 
 One can therefore test the following hypothesis:
 
 ---
+
 **A neural network trained on random input/output binary
 mappings will learn the class statistics and at inference time would predict a $0$ or a $1$ based on the frequency
 of those classes in the train data.**
+
 ---
 
 Below are 3 variations on the same idea.
